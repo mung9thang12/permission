@@ -1,12 +1,12 @@
 <?php
 
-namespace TeamX\Permission;
+namespace Mung9thang12\Permission;
 
 use Illuminate\Cache\CacheManager;
 use Illuminate\Support\Collection;
-use TeamX\Permission\Contracts\Role;
+use Mung9thang12\Permission\Contracts\Role;
 use Illuminate\Contracts\Auth\Access\Gate;
-use TeamX\Permission\Contracts\Permission;
+use Mung9thang12\Permission\Contracts\Permission;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 
 class PermissionRegistrar
@@ -143,7 +143,7 @@ class PermissionRegistrar
     /**
      * Get an instance of the permission class.
      *
-     * @return \TeamX\Permission\Contracts\Permission
+     * @return \Mung9thang12\Permission\Contracts\Permission
      */
     public function getPermissionClass(): Permission
     {
@@ -160,7 +160,7 @@ class PermissionRegistrar
     /**
      * Get an instance of the role class.
      *
-     * @return \TeamX\Permission\Contracts\Role
+     * @return \Mung9thang12\Permission\Contracts\Role
      */
     public function getRoleClass(): Role
     {

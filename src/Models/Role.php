@@ -1,15 +1,15 @@
 <?php
 
-namespace TeamX\Permission\Models;
+namespace Mung9thang12\Permission\Models;
 
-use TeamX\Permission\Guard;
+use Mung9thang12\Permission\Guard;
 use Illuminate\Database\Eloquent\Model;
-use TeamX\Permission\Traits\HasPermissions;
-use TeamX\Permission\Exceptions\RoleDoesNotExist;
-use TeamX\Permission\Exceptions\GuardDoesNotMatch;
-use TeamX\Permission\Exceptions\RoleAlreadyExists;
-use TeamX\Permission\Contracts\Role as RoleContract;
-use TeamX\Permission\Traits\RefreshesPermissionCache;
+use Mung9thang12\Permission\Traits\HasPermissions;
+use Mung9thang12\Permission\Exceptions\RoleDoesNotExist;
+use Mung9thang12\Permission\Exceptions\GuardDoesNotMatch;
+use Mung9thang12\Permission\Exceptions\RoleAlreadyExists;
+use Mung9thang12\Permission\Contracts\Role as RoleContract;
+use Mung9thang12\Permission\Traits\RefreshesPermissionCache;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model implements RoleContract
@@ -75,9 +75,9 @@ class Role extends Model implements RoleContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @return \TeamX\Permission\Contracts\Role|\TeamX\Permission\Models\Role
+     * @return \Mung9thang12\Permission\Contracts\Role|\Mung9thang12\Permission\Models\Role
      *
-     * @throws \TeamX\Permission\Exceptions\RoleDoesNotExist
+     * @throws \Mung9thang12\Permission\Exceptions\RoleDoesNotExist
      */
     public static function findByName(string $name, $guardName = null): RoleContract
     {
@@ -111,7 +111,7 @@ class Role extends Model implements RoleContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @return \TeamX\Permission\Contracts\Role
+     * @return \Mung9thang12\Permission\Contracts\Role
      */
     public static function findOrCreate(string $name, $guardName = null): RoleContract
     {
@@ -133,7 +133,7 @@ class Role extends Model implements RoleContract
      *
      * @return bool
      *
-     * @throws \TeamX\Permission\Exceptions\GuardDoesNotMatch
+     * @throws \Mung9thang12\Permission\Exceptions\GuardDoesNotMatch
      */
     public function hasPermissionTo($permission): bool
     {

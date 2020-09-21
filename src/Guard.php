@@ -1,6 +1,6 @@
 <?php
 
-namespace TeamX\Permission;
+namespace Mung9thang12\Permission;
 
 use Illuminate\Support\Collection;
 

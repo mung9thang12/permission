@@ -1,11 +1,11 @@
 <?php
 
-namespace TeamX\Permission\Traits;
+namespace Mung9thang12\Permission\Traits;
 
 use Illuminate\Support\Collection;
-use TeamX\Permission\Contracts\Role;
+use Mung9thang12\Permission\Contracts\Role;
 use Illuminate\Database\Eloquent\Builder;
-use TeamX\Permission\PermissionRegistrar;
+use Mung9thang12\Permission\PermissionRegistrar;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait HasRoles
@@ -52,7 +52,7 @@ trait HasRoles
      * Scope the model query to certain roles only.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string|array|\TeamX\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
+     * @param string|array|\Mung9thang12\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
      * @param string $guard
      *
      * @return \Illuminate\Database\Eloquent\Builder
@@ -86,7 +86,7 @@ trait HasRoles
     /**
      * Assign the given role to the model.
      *
-     * @param array|string|\TeamX\Permission\Contracts\Role ...$roles
+     * @param array|string|\Mung9thang12\Permission\Contracts\Role ...$roles
      *
      * @return $this
      */
@@ -138,7 +138,7 @@ trait HasRoles
     /**
      * Revoke the given role from the model.
      *
-     * @param string|\TeamX\Permission\Contracts\Role $role
+     * @param string|\Mung9thang12\Permission\Contracts\Role $role
      */
     public function removeRole($role)
     {
@@ -154,7 +154,7 @@ trait HasRoles
     /**
      * Remove all current roles and set the given ones.
      *
-     * @param  array|\TeamX\Permission\Contracts\Role|string  ...$roles
+     * @param  array|\Mung9thang12\Permission\Contracts\Role|string  ...$roles
      *
      * @return $this
      */
@@ -168,7 +168,7 @@ trait HasRoles
     /**
      * Determine if the model has (one of) the given role(s).
      *
-     * @param string|int|array|\TeamX\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
+     * @param string|int|array|\Mung9thang12\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
      * @param string|null $guard
      * @return bool
      */
@@ -212,7 +212,7 @@ trait HasRoles
      *
      * Alias to hasRole() but without Guard controls
      *
-     * @param string|int|array|\TeamX\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
+     * @param string|int|array|\Mung9thang12\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
      *
      * @return bool
      */
@@ -224,7 +224,7 @@ trait HasRoles
     /**
      * Determine if the model has all of the given role(s).
      *
-     * @param  string|array|\TeamX\Permission\Contracts\Role|\Illuminate\Support\Collection  $roles
+     * @param  string|array|\Mung9thang12\Permission\Contracts\Role|\Illuminate\Support\Collection  $roles
      * @param  string|null  $guard
      * @return bool
      */

@@ -1,9 +1,9 @@
 <?php
 
-namespace TeamX\Permission\Commands;
+namespace Mung9thang12\Permission\Commands;
 
 use Illuminate\Console\Command;
-use TeamX\Permission\PermissionRegistrar;
+use Mung9thang12\Permission\PermissionRegistrar;
 
 class CacheReset extends Command
 {

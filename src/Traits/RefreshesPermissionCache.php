@@ -1,8 +1,8 @@
 <?php
 
-namespace TeamX\Permission\Traits;
+namespace Mung9thang12\Permission\Traits;
 
-use TeamX\Permission\PermissionRegistrar;
+use Mung9thang12\Permission\PermissionRegistrar;
 
 trait RefreshesPermissionCache
 {

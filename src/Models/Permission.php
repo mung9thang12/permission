@@ -1,17 +1,17 @@
 <?php
 
-namespace TeamX\Permission\Models;
+namespace Mung9thang12\Permission\Models;
 
-use TeamX\Permission\Guard;
+use Mung9thang12\Permission\Guard;
 use Illuminate\Support\Collection;
-use TeamX\Permission\Traits\HasRoles;
+use Mung9thang12\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
-use TeamX\Permission\PermissionRegistrar;
-use TeamX\Permission\Traits\RefreshesPermissionCache;
-use TeamX\Permission\Exceptions\PermissionDoesNotExist;
+use Mung9thang12\Permission\PermissionRegistrar;
+use Mung9thang12\Permission\Traits\RefreshesPermissionCache;
+use Mung9thang12\Permission\Exceptions\PermissionDoesNotExist;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use TeamX\Permission\Exceptions\PermissionAlreadyExists;
-use TeamX\Permission\Contracts\Permission as PermissionContract;
+use Mung9thang12\Permission\Exceptions\PermissionAlreadyExists;
+use Mung9thang12\Permission\Contracts\Permission as PermissionContract;
 
 class Permission extends Model implements PermissionContract
 {
@@ -94,9 +94,9 @@ class Permission extends Model implements PermissionContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @throws \TeamX\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \Mung9thang12\Permission\Exceptions\PermissionDoesNotExist
      *
-     * @return \TeamX\Permission\Contracts\Permission
+     * @return \Mung9thang12\Permission\Contracts\Permission
      */
     public static function findByName(string $name, $guardName = null): PermissionContract
     {
@@ -115,9 +115,9 @@ class Permission extends Model implements PermissionContract
      * @param int $id
      * @param string|null $guardName
      *
-     * @throws \TeamX\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \Mung9thang12\Permission\Exceptions\PermissionDoesNotExist
      *
-     * @return \TeamX\Permission\Contracts\Permission
+     * @return \Mung9thang12\Permission\Contracts\Permission
      */
     public static function findById(int $id, $guardName = null): PermissionContract
     {
@@ -137,7 +137,7 @@ class Permission extends Model implements PermissionContract
      * @param string $name
      * @param string|null $guardName
      *
-     * @return \TeamX\Permission\Contracts\Permission
+     * @return \Mung9thang12\Permission\Contracts\Permission
      */
     public static function findOrCreate(string $name, $guardName = null): PermissionContract
     {

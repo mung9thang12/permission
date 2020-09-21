@@ -1,10 +1,10 @@
 <?php
 
-namespace TeamX\Permission\Commands;
+namespace Mung9thang12\Permission\Commands;
 
 use Illuminate\Console\Command;
-use TeamX\Permission\Contracts\Role as RoleContract;
-use TeamX\Permission\Contracts\Permission as PermissionContract;
+use Mung9thang12\Permission\Contracts\Role as RoleContract;
+use Mung9thang12\Permission\Contracts\Permission as PermissionContract;
 
 class CreateRole extends Command
 {

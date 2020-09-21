@@ -1,9 +1,9 @@
 <?php
 
-namespace TeamX\Permission\Middlewares;
+namespace Mung9thang12\Permission\Middlewares;
 
 use Closure;
-use TeamX\Permission\Exceptions\UnauthorizedException;
+use Mung9thang12\Permission\Exceptions\UnauthorizedException;
 
 class PermissionMiddleware
 {

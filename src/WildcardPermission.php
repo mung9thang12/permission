@@ -1,9 +1,9 @@
 <?php
 
-namespace TeamX\Permission;
+namespace Mung9thang12\Permission;
 
 use Illuminate\Support\Collection;
-use TeamX\Permission\Exceptions\WildcardPermissionNotProperlyFormatted;
+use Mung9thang12\Permission\Exceptions\WildcardPermissionNotProperlyFormatted;
 
 class WildcardPermission
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace TeamX\Permission\Contracts;
+namespace Mung9thang12\Permission\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -19,7 +19,7 @@ interface Permission
      * @param string $name
      * @param string|null $guardName
      *
-     * @throws \TeamX\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \Mung9thang12\Permission\Exceptions\PermissionDoesNotExist
      *
      * @return Permission
      */
@@ -31,7 +31,7 @@ interface Permission
      * @param int $id
      * @param string|null $guardName
      *
-     * @throws \TeamX\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \Mung9thang12\Permission\Exceptions\PermissionDoesNotExist
      *
      * @return Permission
      */

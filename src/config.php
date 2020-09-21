@@ -10,10 +10,10 @@ return [
          * is often just the "Permission" model but you may use whatever you like.
          *
          * The model you want to use as a Permission model needs to implement the
-         * `TeamX\Permission\Contracts\Permission` contract.
+         * `Mung9thang12\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => TeamX\Permission\Models\Permission::class,
+        'permission' => Mung9thang12\Permission\Models\Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -21,10 +21,10 @@ return [
          * is often just the "Role" model but you may use whatever you like.
          *
          * The model you want to use as a Role model needs to implement the
-         * `TeamX\Permission\Contracts\Role` contract.
+         * `Mung9thang12\Permission\Contracts\Role` contract.
          */
 
-        'role' => TeamX\Permission\Models\Role::class,
+        'role' => Mung9thang12\Permission\Models\Role::class,
 
     ],
 
@@ -127,7 +127,7 @@ return [
          * The cache key used to store all permissions.
          */
 
-        'key' => 'TeamX.permission.cache',
+        'key' => 'Mung9thang12.permission.cache',
 
         /*
          * When checking for a permission against a model by passing a Permission
