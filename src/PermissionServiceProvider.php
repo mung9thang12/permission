@@ -1,27 +1,42 @@
 <?php
 
-namespace TeamX\Permission;
+namespace Mung9thang12\Permission;
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use TeamX\Permission\Contracts\Permission as PermissionContract;
-use TeamX\Permission\Contracts\Role as RoleContract;
+use Laravel\Lumen\Application as LumenApplication;
+use Mung9thang12\Permission\Contracts\Permission as PermissionContract;
+use Mung9thang12\Permission\Contracts\Role as RoleContract;
 
 class PermissionServiceProvider extends ServiceProvider
 {
     public function boot(PermissionRegistrar $permissionLoader, Filesystem $filesystem)
     {
+        
+        //load config
+        if ($this->app instanceof LaravelApplication) {
+            if ($this->app->runningInConsole()) {
+                $this->publishes([
+                    __DIR__ . '/config.php' => config_path('permission.php'),
+                ], 'config');
+            }
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('cors');
+        }
 
         //load migration
-        if (!file_exists(database_path('migrations/2020_01_01_000000_create_permission_tables.php'))) {
-            $this->publishes([
-                __DIR__ . '/database/migrations/2020_01_01_000000_create_permission_tables.php' => \database_path('migrations/2020_01_01_000000_create_permission_tables.php'),
-            ], 'migrations');
-            $this->loadMigrationsFrom(__DIR__ . '/database/migrations/2020_01_01_000000_create_permission_tables.php');
+        if ($this->app instanceof LaravelApplication) {
+            if ($this->app->runningInConsole()) {
+                $this->publishes([
+                    __DIR__ . '/database/migrations/2020_01_01_000000_create_permission_tables.php' => $this->getMigrationFileName($filesystem),
+                ], 'migrations');
+            }
         }
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations/2020_01_01_000000_create_permission_tables.php');
         $this->registerMiddleware();
         $this->registerMacroHelpers();
 
@@ -44,13 +59,7 @@ class PermissionServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //load config
-        if (!file_exists(config_path('permission'))) {
-            $this->publishes([
-                __DIR__ . '/config.php' => config_path('permission.php'),
-            ], 'config');
-            $this->mergeConfigFrom(__DIR__ . '/config.php', 'permission');
-        }
+        $this->mergeConfigFrom(__DIR__ . '/config.php', 'permission');
 
         $this->registerBladeExtensions();
     }
@@ -67,10 +76,19 @@ class PermissionServiceProvider extends ServiceProvider
         $this->app->bind(RoleContract::class, $config['role']);
     }
 
-    protected function registerMiddleware(){
-        app('router')->aliasMiddleware('role',\TeamX\Permission\Middlewares\RoleMiddleware::class);
-        app('router')->aliasMiddleware('permission',\TeamX\Permission\Middlewares\PermissionMiddleware::class);
-        app('router')->aliasMiddleware('roleorpermission',\TeamX\Permission\Middlewares\RoleOrPermissionMiddleware::class);
+    protected function registerMiddleware()
+    {
+        if ($this->app instanceof LaravelApplication) {
+            app('router')->aliasMiddleware('role', \Mung9thang12\Permission\Middlewares\RoleMiddleware::class);
+            app('router')->aliasMiddleware('permission', \Mung9thang12\Permission\Middlewares\PermissionMiddleware::class);
+            app('router')->aliasMiddleware('roleorpermission', \Mung9thang12\Permission\Middlewares\RoleOrPermissionMiddleware::class);
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->routeMiddleware([
+                'role' => \Mung9thang12\Permission\Middlewares\RoleMiddleware::class,
+                'permission'=> \Mung9thang12\Permission\Middlewares\PermissionMiddleware::class,
+                'roleorpermission'=> \Mung9thang12\Permission\Middlewares\RoleOrPermissionMiddleware::class
+            ]);
+        }
     }
 
     protected function registerBladeExtensions()
