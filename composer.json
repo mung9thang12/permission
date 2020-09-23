@@ -1,0 +1,27 @@
+{
+    "name": "mung9thang12/permission",
+    "description": "laravel permission customize for spatie/laravel-permission",
+    "type": "library",
+    "authors": [
+        {
+            "name": "mung9thang12",
+            "email": "mung9thang12@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mung9thang12\\Permission\\":"src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mung9thang12\\Permission\\PermissionServiceProvider"
+            ]
+        }
+    }
+}
