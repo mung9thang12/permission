@@ -36,7 +36,11 @@ class PermissionServiceProvider extends ServiceProvider
                 ], 'Migrations Permission');
             }
         }
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations/2020_01_01_000000_create_permission_tables.php');
+        foreach (glob(database_path('migrations/*_create_permission_tables.php')) as $file_migration){
+            if(!file_exists($file_migration)){
+                $this->loadMigrationsFrom(__DIR__ . '/database/migrations/2020_01_01_000000_create_permission_tables.php');
+            }
+        }
         $this->registerMiddleware();
         $this->registerMacroHelpers();
 
